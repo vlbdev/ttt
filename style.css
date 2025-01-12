@@ -1,0 +1,23 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: aliceblue;
+}
+
+.grid {
+  background-color: antiquewhite;
+  display: grid;
+  grid-template-columns: repeat(3, 180px);
+  grid-template-rows: repeat(3, 180px);
+  justify-content: center;
+  align-content: center;
+  min-height: 100vh;
+}
+
+.grid > div {
+  background-color: bisque;
+}
