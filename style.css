@@ -11,8 +11,8 @@ body {
 .grid {
   background-color: antiquewhite;
   display: grid;
-  grid-template-columns: repeat(3, 180px);
-  grid-template-rows: repeat(3, 180px);
+  grid-template-columns: repeat(3, 150px);
+  grid-template-rows: repeat(3, 150px);
   justify-content: center;
   align-content: center;
   min-height: 100vh;
