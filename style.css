@@ -23,7 +23,6 @@ body {
 }
 
 .grid > div:hover {
-  cursor: url("https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/U%2B25CC.svg/120px-U%2B25CC.svg.png")
-      50 50,
-    auto;
+  cursor: url("close-custom.png") 64 64, auto;
+  /*cursor: url("circle-outline-custom.png") 64 64, auto;*/
 }

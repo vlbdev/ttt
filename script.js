@@ -28,7 +28,7 @@
 
 //Your players are also going to be stored in objects, and you’re probably going to want an object to control the flow of the game itself.
 
-с; //делать сетку
+//с; //делать сетку
 
 //при наведении курсора на сетку показывать полупрозрачный крестик
 //должна быть система определения кто ходит
