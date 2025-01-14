@@ -1,6 +1,14 @@
 (function () {
   const grid = document.querySelectorAll(".grid div");
+
   grid.forEach((element) => {
+    const cross = document.createElement("img");
+    cross.setAttribute("src", "close-custom.png");
+    element.addEventListener("click", (e) => {
+      e.target.append(cross);
+
+      //console.log(e.currentTarget);
+    });
     if (
       element.getAttribute("data-id") == 1 ||
       element.getAttribute("data-id") == 2 ||
@@ -28,7 +36,7 @@
 
 //Your players are also going to be stored in objects, and you’re probably going to want an object to control the flow of the game itself.
 
-//с; //делать сетку
+//сделать сетку
 
 //при наведении курсора на сетку показывать полупрозрачный крестик
 //должна быть система определения кто ходит
