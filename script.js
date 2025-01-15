@@ -1,11 +1,39 @@
 (function () {
-  const grid = document.querySelectorAll(".grid div");
+  let grid = document.querySelectorAll(".grid div");
+
+  const crossCursor =
+    ".grid > div:hover {cursor: url('close-custom.png') 64 64, auto;}";
+  const circleCursor =
+    ".grid > div:hover {cursor: url('circle-outline-custom.png') 64 64, auto;}";
+  const cursorStyles = document.createElement("style");
+
+  cursorStyles.innerText = circleCursor;
+
+  document.getElementsByTagName("head")[0].appendChild(cursorStyles);
+
+  function changeCursor() {
+    if (cursorStyles.innerText == circleCursor) {
+      //cursorStyles.remove();
+      cursorStyles.innerText = crossCursor;
+    } else {
+      cursorStyles.innerText = circleCursor;
+    }
+  }
 
   grid.forEach((element) => {
-    const cross = document.createElement("img");
-    cross.setAttribute("src", "close-custom.png");
+    const crossImg = document.createElement("img");
+    const circleImg = document.createElement("img");
+    crossImg.setAttribute("src", "close-custom.png");
+    circleImg.setAttribute("src", "circle-outline-custom.png");
+
     element.addEventListener("click", (e) => {
-      e.target.append(cross);
+      //e.target.append(cross);
+      if (cursorStyles.innerText == circleCursor) {
+        e.target.append(circleImg);
+      } else {
+        e.target.append(crossImg);
+      }
+      changeCursor();
 
       //console.log(e.currentTarget);
     });

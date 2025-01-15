@@ -24,8 +24,3 @@ body {
   justify-content: center;
   align-items: center;
 }
-
-.grid > div:hover {
-  cursor: url("close-custom.png") 64 64, auto;
-  /*cursor: url("circle-outline-custom.png") 64 64, auto;*/
-}
