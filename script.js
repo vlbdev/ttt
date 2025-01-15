@@ -33,9 +33,8 @@
       } else {
         e.target.append(crossImg);
       }
-      changeCursor();
 
-      //console.log(e.currentTarget);
+      changeCursor();
     });
     if (
       element.getAttribute("data-id") == 1 ||
@@ -60,7 +59,9 @@
   });
 })();
 
-// need to check if the field has already been clicked or not
+// need to check if the field has already been clicked or not (and made field disabled for further clicking)
+
+// stop bubbling effect - stopPropagation()
 
 //You’re going to store the gameboard as an array inside of a Gameboard object, so start there!
 
