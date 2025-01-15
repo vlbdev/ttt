@@ -2,9 +2,9 @@
   let grid = document.querySelectorAll(".grid div");
 
   const crossCursor =
-    ".grid > div:hover {cursor: url('close-custom.png') 64 64, auto;}";
+    ".grid > div:hover {cursor: url('close.png') 64 64, auto;}";
   const circleCursor =
-    ".grid > div:hover {cursor: url('circle-outline-custom.png') 64 64, auto;}";
+    ".grid > div:hover {cursor: url('circle.png') 64 64, auto;}";
   const cursorStyles = document.createElement("style");
 
   cursorStyles.innerText = circleCursor;
