@@ -1,4 +1,8 @@
 (function () {
+  let playField = {
+    selectedCells: [],
+  };
+
   let grid = document.querySelectorAll(".grid div");
 
   const crossCursor =
@@ -23,18 +27,27 @@
   grid.forEach((element) => {
     const crossImg = document.createElement("img");
     const circleImg = document.createElement("img");
-    crossImg.setAttribute("src", "close-custom.png");
-    circleImg.setAttribute("src", "circle-outline-custom.png");
+    //crossImg.setAttribute("src", "close-custom.png");
+    //circleImg.setAttribute("src", "circle-outline-custom.png");
 
     element.addEventListener("click", (e) => {
-      //e.target.append(cross);
-      if (cursorStyles.innerText == circleCursor) {
-        e.target.append(circleImg);
+      if (playField.selectedCells.includes(e.target.getAttribute("data-id"))) {
       } else {
-        e.target.append(crossImg);
+        playField.selectedCells.push(e.target.getAttribute("data-id"));
+        if (cursorStyles.innerText == circleCursor) {
+          e.target.style.background = "url('circle-outline-custom.png')";
+          e.target.style.backgroundColor = "bisque";
+          e.target.style.backgroundRepeat = "no-repeat";
+          e.target.style.backgroundPosition = "center center";
+        } else {
+          e.target.style.background = "url('close-custom.png')";
+          e.target.style.backgroundColor = "bisque";
+          e.target.style.backgroundRepeat = "no-repeat";
+          e.target.style.backgroundPosition = "center center";
+        }
+        changeCursor();
+        console.log(playField.selectedCells);
       }
-
-      changeCursor();
     });
     if (
       element.getAttribute("data-id") == 1 ||
@@ -58,8 +71,6 @@
     }
   });
 })();
-
-// need to check if the field has already been clicked or not (and made field disabled for further clicking)
 
 // stop bubbling effect - stopPropagation()
 
