@@ -17,7 +17,6 @@
 
   function changeCursor() {
     if (cursorStyles.innerText == circleCursor) {
-      //cursorStyles.remove();
       cursorStyles.innerText = crossCursor;
     } else {
       cursorStyles.innerText = circleCursor;
@@ -25,11 +24,6 @@
   }
 
   grid.forEach((element) => {
-    const crossImg = document.createElement("img");
-    const circleImg = document.createElement("img");
-    //crossImg.setAttribute("src", "close-custom.png");
-    //circleImg.setAttribute("src", "circle-outline-custom.png");
-
     element.addEventListener("click", (e) => {
       if (playField.selectedCells.includes(e.target.getAttribute("data-id"))) {
       } else {
