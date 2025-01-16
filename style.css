@@ -21,8 +21,23 @@ h1 {
   text-align: center;
 }
 
+aside {
+  text-align: center;
+  padding-top: 20px;
+}
+
+aside img {
+  vertical-align: middle;
+}
+
+aside input {
+  width: 120px;
+  padding: 8px;
+  background-color: beige;
+}
+
 .grid {
-  background-color: antiquewhite;
+  padding-top: 20px;
   display: grid;
   grid-template-columns: repeat(3, 150px);
   grid-template-rows: repeat(3, 150px);
