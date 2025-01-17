@@ -3,6 +3,43 @@
     selectedCells: [],
   };
 
+  let winCombinations = [
+    ["1", "2", "3"],
+    ["4", "5", "6"],
+    ["7", "8", "9"],
+    //
+    ["1", "5", "9"],
+    ["3", "5", "7"],
+    //
+    ["1", "4", "7"],
+    ["2", "5", "8"],
+    ["3", "6", "9"],
+  ];
+
+  function createPlayer(name) {
+    return {
+      name,
+      score: 0,
+      cursor: "cross",
+      selectedCells: [],
+      checkWining: function () {
+        for (const win of winCombinations) {
+          if (
+            this.selectedCells.includes(win[0]) &&
+            this.selectedCells.includes(win[1]) &&
+            this.selectedCells.includes(win[2])
+          ) {
+            return true;
+          }
+        }
+        return false;
+      },
+    };
+  }
+
+  let player1 = createPlayer("Player 1");
+  let player2 = createPlayer("Player 2");
+
   let grid = document.querySelectorAll(".grid div");
 
   const crossCursor =
@@ -29,18 +66,25 @@
       } else {
         playField.selectedCells.push(e.target.getAttribute("data-id"));
         if (cursorStyles.innerText == circleCursor) {
+          player2.selectedCells.push(e.target.getAttribute("data-id"));
           e.target.style.background = "url('circle-outline-custom.png')";
           e.target.style.backgroundColor = "bisque";
           e.target.style.backgroundRepeat = "no-repeat";
           e.target.style.backgroundPosition = "center center";
         } else {
+          player1.selectedCells.push(e.target.getAttribute("data-id"));
           e.target.style.background = "url('close-custom.png')";
           e.target.style.backgroundColor = "bisque";
           e.target.style.backgroundRepeat = "no-repeat";
           e.target.style.backgroundPosition = "center center";
         }
+        if (player1.checkWining()) {
+          document.querySelector("h1").innerText = player1.name + " won";
+        }
+        if (player2.checkWining()) {
+          document.querySelector("h1").innerText = player2.name + " won";
+        }
         changeCursor();
-        console.log(playField.selectedCells);
       }
     });
     if (
