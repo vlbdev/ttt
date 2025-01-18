@@ -3,7 +3,12 @@
     selectedCells: [],
   };
 
-  let scoreTable;
+  let scoreTable = {
+    player1Name: document.querySelector("#crossName").value,
+    player2Name: document.querySelector("#circleName").value,
+    player1Score: 0,
+    player2Score: 0,
+  };
 
   let winCombinations = [
     ["1", "2", "3"],
@@ -82,9 +87,19 @@
         }
         if (player1.checkWining()) {
           document.querySelector("h1").innerText = player1.name + " won";
+          scoreTable.player1Score += 1;
+          document.querySelector(".player1Name").innerText =
+            scoreTable.player1Name;
+          document.querySelector(".player1Score").innerText =
+            scoreTable.player1Score;
         }
         if (player2.checkWining()) {
           document.querySelector("h1").innerText = player2.name + " won";
+          scoreTable.player2Score += 1;
+          document.querySelector(".player2Name").innerText =
+            scoreTable.player2Name;
+          document.querySelector(".player2Score").innerText =
+            scoreTable.player2Score;
         }
         changeCursor();
       }
