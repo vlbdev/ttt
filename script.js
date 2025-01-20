@@ -10,6 +10,11 @@
     player2Score: 0,
   };
 
+  document.querySelector(".player1Name").innerText = scoreTable.player1Name;
+  document.querySelector(".player1Score").innerText = scoreTable.player1Score;
+  document.querySelector(".player2Name").innerText = scoreTable.player2Name;
+  document.querySelector(".player2Score").innerText = scoreTable.player2Score;
+
   let winCombinations = [
     ["1", "2", "3"],
     ["4", "5", "6"],
