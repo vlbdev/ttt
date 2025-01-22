@@ -64,6 +64,15 @@ dialog {
   padding: 55px 0;
   margin: auto;
 }
+.scoreRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.resetButton {
+  padding: 2px 35px;
+  margin: 30px;
+}
 
 dialog h2 {
   margin: 50px 0;
