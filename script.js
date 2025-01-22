@@ -1,4 +1,47 @@
 (function () {
+  let inputData = {
+    // firstPlayerName:
+    // secondPlayerName:
+  };
+
+  let player1 = {
+    name: inputData, //.firstPlayerName,
+    score: 0,
+    selectedCells: [],
+  };
+  let player2 = {};
+  let playBoard = {
+    //cellNumber : "X" / "0"
+  };
+
+  let results = {
+    //get names from
+  };
+
+  let winCombinations = [
+    ["1", "2", "3"],
+    ["4", "5", "6"],
+    ["7", "8", "9"],
+    //
+    ["1", "5", "9"],
+    ["3", "5", "7"],
+    //
+    ["1", "4", "7"],
+    ["2", "5", "8"],
+    ["3", "6", "9"],
+  ];
+
+  (function () {
+    // onkeyup - change table of results
+    //create board
+    // draw game data
+    //set player
+    //select cell
+    //check winner
+    //change player
+    //again
+  })();
+
   // let playField = {
   //   selectedCells: [],
   // };
