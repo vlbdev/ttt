@@ -56,3 +56,23 @@ aside input {
 .selected {
   border-bottom: 6px solid red;
 }
+
+dialog {
+  width: 50%;
+  height: 50%;
+  text-align: center;
+  padding: 55px 0;
+  margin: auto;
+}
+
+dialog h2 {
+  margin: 50px 0;
+}
+
+dialog button {
+  padding: 5px 25px;
+}
+
+dialog::backdrop {
+  background-color: rgba(24, 76, 119, 0.7);
+}

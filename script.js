@@ -50,8 +50,8 @@
     };
   }
 
-  let player1 = createPlayer("Player 1");
-  let player2 = createPlayer("Player 2");
+  let player1 = createPlayer(scoreTable.player1Name);
+  let player2 = createPlayer(scoreTable.player2Name);
 
   let grid = document.querySelectorAll(".grid div");
 
@@ -101,6 +101,7 @@
             scoreTable.player1Score;
         }
         if (player2.checkWining()) {
+          scoreTable.modal.showModal();
           document.querySelector("h2").innerText = player2.name + " won";
           scoreTable.player2Score += 1;
           document.querySelector(".player2Name").innerText =
