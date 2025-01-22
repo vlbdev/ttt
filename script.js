@@ -5,11 +5,17 @@
   };
 
   let player1 = {
-    name: inputData, //.firstPlayerName.value,
+    name: inputData.firstPlayerName.value,
     score: 0,
     selectedCells: [],
   };
-  let player2 = {};
+
+  let player2 = {
+    name: inputData.secondPlayerName.value,
+    score: 0,
+    selectedCells: [],
+  };
+
   let playBoard = {
     //cellNumber : "X" / "0"
   };
