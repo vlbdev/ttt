@@ -1,11 +1,11 @@
 (function () {
   let inputData = {
-    // firstPlayerName:
-    // secondPlayerName:
+    firstPlayerName: document.querySelector("#crossName"),
+    secondPlayerName: document.querySelector("#circleName"),
   };
 
   let player1 = {
-    name: inputData, //.firstPlayerName,
+    name: inputData, //.firstPlayerName.value,
     score: 0,
     selectedCells: [],
   };
@@ -41,6 +41,8 @@
     //change player
     //again
   })();
+
+  ///////////////////////////////////////////////////////////////////////////////
 
   // let playField = {
   //   selectedCells: [],
