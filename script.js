@@ -4,24 +4,46 @@
     secondPlayerName: document.querySelector("#circleName"),
   };
 
-  let player1 = {
-    name: inputData.firstPlayerName.value,
-    score: 0,
-    selectedCells: [],
+  let createPlayer = function (name) {
+    let score = 0;
+    return {
+      name,
+      getScore: function () {
+        return score;
+      },
+      addPoint: function () {
+        score++;
+      },
+      selectedCells: [],
+    };
   };
 
-  let player2 = {
-    name: inputData.secondPlayerName.value,
-    score: 0,
-    selectedCells: [],
-  };
+  let player1 = createPlayer(inputData.firstPlayerName.value);
+  let player2 = createPlayer(inputData.secondPlayerName.value);
+
+  console.log(player1.score);
+  console.log(player1.getScore());
+  player1.addPoint();
+  player1.addPoint();
+  player1.addPoint();
+  player2.addPoint();
+  console.log(player1.getScore());
+  console.log("player 2");
+  console.log(player2.getScore());
 
   let playBoard = {
     //cellNumber : "X" / "0"
   };
 
+  function makeStep(player, cell) {
+    //cell.
+  }
+
+  //clean board function
+  //draw board function
+
   let results = {
-    //get names from
+    //get names from inputs
   };
 
   let winCombinations = [
@@ -41,7 +63,7 @@
     // onkeyup - change table of results
     //create board
     // draw game data
-    //set player
+    //set active player
     //select cell
     //check winner
     //change player
