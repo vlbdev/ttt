@@ -8,6 +8,7 @@
     player2Name: document.querySelector("#circleName").value,
     player1Score: 0,
     player2Score: 0,
+    modal: document.querySelector("dialog"),
   };
 
   document.querySelector(".player1Name").innerText = scoreTable.player1Name;
@@ -91,7 +92,8 @@
           e.target.style.backgroundPosition = "center center";
         }
         if (player1.checkWining()) {
-          document.querySelector("h1").innerText = player1.name + " won";
+          document.querySelector("h2").innerText = player1.name + " won";
+          scoreTable.modal.showModal();
           scoreTable.player1Score += 1;
           document.querySelector(".player1Name").innerText =
             scoreTable.player1Name;
@@ -99,7 +101,7 @@
             scoreTable.player1Score;
         }
         if (player2.checkWining()) {
-          document.querySelector("h1").innerText = player2.name + " won";
+          document.querySelector("h2").innerText = player2.name + " won";
           scoreTable.player2Score += 1;
           document.querySelector(".player2Name").innerText =
             scoreTable.player2Name;
