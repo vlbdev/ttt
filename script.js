@@ -21,16 +21,6 @@
   let player1 = createPlayer(inputData.firstPlayerName.value);
   let player2 = createPlayer(inputData.secondPlayerName.value);
 
-  //console.log(player1.score);
-  // console.log(player1.getScore());
-  //player1.addPoint();
-  //player1.addPoint();
-  //player1.addPoint();
-  // player2.addPoint();
-  //console.log(player1.getScore());
-  //console.log("player 2");
-  //console.log(player2.getScore());
-
   let playBoard = {
     //cellNumber : "X" / "0"
   };
@@ -86,10 +76,30 @@
     }
   });
 
+  let cursorStyles = document.createElement("style");
+
+  let cursor = {
+    cross: ".grid > div:hover {cursor: url('close.png') 64 64, auto;}",
+    circle: ".grid > div:hover {cursor: url('circle.png') 64 64, auto;}",
+
+    setCursor: () => {
+      cursorStyles.innerText = cursor.circle;
+      document.getElementsByTagName("head")[0].appendChild(cursorStyles);
+    },
+    changeCursor: () => {
+      if (cursorStyles.innerText == cursor.circle) {
+        cursorStyles.innerText = cursor.cross;
+      } else {
+        cursorStyles.innerText = cursor.circle;
+      }
+    },
+  };
+
   inputData.firstPlayerName.addEventListener("keyup", () => {
     player1.name = inputData.firstPlayerName.value;
     updateResultsTable();
   });
+
   inputData.secondPlayerName.addEventListener("keyup", () => {
     player2.name = inputData.secondPlayerName.value;
     updateResultsTable();
@@ -99,9 +109,11 @@
     results.resultPlayer1Name.textContent = player1.name;
     results.resultPlayer2Name.textContent = player2.name;
   }
-  updateResultsTable();
 
   (function () {
+    updateResultsTable();
+    cursor.setCursor();
+
     // onkeyup - change table of results
     //create board
     // draw game data
@@ -164,19 +176,9 @@
   // let player1 = createPlayer(scoreTable.player1Name);
   // let player2 = createPlayer(scoreTable.player2Name);
   // let grid = document.querySelectorAll(".grid div");
-  // const crossCursor =
-  //   ".grid > div:hover {cursor: url('close.png') 64 64, auto;}";
-  // const circleCursor =
-  //   ".grid > div:hover {cursor: url('circle.png') 64 64, auto;}";
-  // const cursorStyles = document.createElement("style");
-  // cursorStyles.innerText = circleCursor;
-  // document.getElementsByTagName("head")[0].appendChild(cursorStyles);
+
   // function changeCursor() {
-  //   if (cursorStyles.innerText == circleCursor) {
-  //     cursorStyles.innerText = crossCursor;
-  //   } else {
-  //     cursorStyles.innerText = circleCursor;
-  //   }
+
   // }
   // scoreTable.next.addEventListener("click", () => {
   //   scoreTable.modal.close();
