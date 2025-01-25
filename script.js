@@ -21,15 +21,15 @@
   let player1 = createPlayer(inputData.firstPlayerName.value);
   let player2 = createPlayer(inputData.secondPlayerName.value);
 
-  console.log(player1.score);
-  console.log(player1.getScore());
-  player1.addPoint();
-  player1.addPoint();
-  player1.addPoint();
-  player2.addPoint();
-  console.log(player1.getScore());
-  console.log("player 2");
-  console.log(player2.getScore());
+  //console.log(player1.score);
+  // console.log(player1.getScore());
+  //player1.addPoint();
+  //player1.addPoint();
+  //player1.addPoint();
+  // player2.addPoint();
+  //console.log(player1.getScore());
+  //console.log("player 2");
+  //console.log(player2.getScore());
 
   let playBoard = {
     //cellNumber : "X" / "0"
@@ -43,6 +43,8 @@
   //draw board function
 
   let results = {
+    resultPlayer1Name: document.querySelector("#resultPlayer1Name"),
+    resultPlayer2Name: document.querySelector("#resultPlayer2Name"),
     //get names from inputs
   };
 
@@ -58,6 +60,21 @@
     ["2", "5", "8"],
     ["3", "6", "9"],
   ];
+
+  inputData.firstPlayerName.addEventListener("keyup", () => {
+    player1.name = inputData.firstPlayerName.value;
+    updateResultsTable();
+  });
+  inputData.secondPlayerName.addEventListener("keyup", () => {
+    player2.name = inputData.secondPlayerName.value;
+    updateResultsTable();
+  });
+
+  function updateResultsTable() {
+    results.resultPlayer1Name.textContent = player1.name;
+    results.resultPlayer2Name.textContent = player2.name;
+  }
+  updateResultsTable();
 
   (function () {
     // onkeyup - change table of results
