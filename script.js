@@ -1,9 +1,11 @@
 (function () {
+  // input fields for player's names
   let inputData = {
     firstPlayerName: document.querySelector("#crossName"),
     secondPlayerName: document.querySelector("#circleName"),
   };
 
+  // function factory for player's objects creation
   let createPlayer = function (name) {
     let score = 0;
     return {
@@ -18,26 +20,34 @@
     };
   };
 
+  // create two players
   let player1 = createPlayer(inputData.firstPlayerName.value);
   let player2 = createPlayer(inputData.secondPlayerName.value);
 
+  // create object for game board
   let playBoard = {
     //cellNumber : "X" / "0"
+    gridCells: document.querySelectorAll(".grid div"),
+    //clean board function
+    //draw board function
   };
 
+  // function for actions during each player make step in the game
   function makeStep(player, cell) {
     //cell.
   }
 
-  //clean board function
-  //draw board function
-
+  // object to show results of the game
   let results = {
     resultPlayer1Name: document.querySelector("#resultPlayer1Name"),
     resultPlayer2Name: document.querySelector("#resultPlayer2Name"),
-    //get names from inputs
+    updateResultsTable: () => {
+      results.resultPlayer1Name.textContent = player1.name;
+      results.resultPlayer2Name.textContent = player2.name;
+    },
   };
 
+  // array of winning combinations
   let winCombinations = [
     ["1", "2", "3"],
     ["4", "5", "6"],
@@ -51,9 +61,8 @@
     ["3", "6", "9"],
   ];
 
-  let gridCells = document.querySelectorAll(".grid div");
-
-  gridCells.forEach((element) => {
+  // lines drawing
+  playBoard.gridCells.forEach((element) => {
     if (
       element.getAttribute("data-id") == 1 ||
       element.getAttribute("data-id") == 2 ||
@@ -78,10 +87,10 @@
 
   let cursorStyles = document.createElement("style");
 
+  // create cursor for players
   let cursor = {
     cross: ".grid > div:hover {cursor: url('close.png') 64 64, auto;}",
     circle: ".grid > div:hover {cursor: url('circle.png') 64 64, auto;}",
-
     setCursor: () => {
       cursorStyles.innerText = cursor.circle;
       document.getElementsByTagName("head")[0].appendChild(cursorStyles);
@@ -95,33 +104,30 @@
     },
   };
 
-  inputData.firstPlayerName.addEventListener("keyup", () => {
-    player1.name = inputData.firstPlayerName.value;
-    updateResultsTable();
-  });
-
-  inputData.secondPlayerName.addEventListener("keyup", () => {
-    player2.name = inputData.secondPlayerName.value;
-    updateResultsTable();
-  });
-
-  function updateResultsTable() {
-    results.resultPlayer1Name.textContent = player1.name;
-    results.resultPlayer2Name.textContent = player2.name;
-  }
-
+  // play game
   (function () {
-    updateResultsTable();
+    // changing 1 player name
+    inputData.firstPlayerName.addEventListener("keyup", () => {
+      player1.name = inputData.firstPlayerName.value;
+      results.updateResultsTable();
+    });
+
+    // changing 2 player name
+    inputData.secondPlayerName.addEventListener("keyup", () => {
+      player2.name = inputData.secondPlayerName.value;
+      results.updateResultsTable();
+    });
+
+    results.updateResultsTable();
     cursor.setCursor();
 
-    // onkeyup - change table of results
-    //create board
-    // draw game data
-    //set active player
-    //select cell
-    //check winner
-    //change player
-    //again
+    // add event listener for grid cells
+    // onclick - set player's cursor into playBoard object in format
+    // cellsData : ["unused","-","-","-","-","-","-","-","-","-"]
+    // draw playboard
+    // check winner
+    // change cursor
+    // reset all game process if reset button clicked
   })();
 
   ///////////////////////////////////////////////////////////////////////////////
