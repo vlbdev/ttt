@@ -121,11 +121,20 @@
     results.updateResultsTable();
     cursor.setCursor();
 
+    playBoard.gridCells.forEach((element) => {
+      element.addEventListener("click", (e) => {
+        e.target.style.background =
+          "bisque url('circle-outline-custom.png') no-repeat center center";
+        cursor.changeCursor();
+      });
+    });
+
     // add event listener for grid cells
     // onclick - set player's cursor into playBoard object in format
     // cellsData : ["unused","-","-","-","-","-","-","-","-","-"]
     // draw playboard
     // check winner
+    // highlight wining row / column / diagonal
     // change cursor
     // reset all game process if reset button clicked
   })();
