@@ -178,6 +178,10 @@
             results.modal.showModal();
           }
 
+          if (playBoard.selectedCells.length == 9) {
+            document.querySelector("h2").innerText = "It's a tie";
+            results.modal.showModal();
+          }
           cursor.changeCursor();
         }
       });
