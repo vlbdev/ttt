@@ -91,6 +91,7 @@
   let cursor = {
     cross: ".grid > div:hover {cursor: url('close.png') 64 64, auto;}",
     circle: ".grid > div:hover {cursor: url('circle.png') 64 64, auto;}",
+    cursorImg: "circle-outline-custom.png",
     setCursor: () => {
       cursorStyles.innerText = cursor.circle;
       document.getElementsByTagName("head")[0].appendChild(cursorStyles);
@@ -98,8 +99,10 @@
     changeCursor: () => {
       if (cursorStyles.innerText == cursor.circle) {
         cursorStyles.innerText = cursor.cross;
+        cursor.cursorImg = "close-custom.png";
       } else {
         cursorStyles.innerText = cursor.circle;
+        cursor.cursorImg = "circle-outline-custom.png";
       }
     },
   };
@@ -123,9 +126,9 @@
 
     playBoard.gridCells.forEach((element) => {
       element.addEventListener("click", (e) => {
-        e.target.style.background =
-          "bisque url('circle-outline-custom.png') no-repeat center center";
+        e.target.style.background = `bisque url('${cursor.cursorImg}') no-repeat center center`;
         cursor.changeCursor();
+        console.log(cursor.cursorImg);
       });
     });
 
