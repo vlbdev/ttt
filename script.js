@@ -58,6 +58,7 @@
     resultPlayer2Name: document.querySelector("#resultPlayer2Name"),
     resultPlayer1Score: document.querySelector("#player1Score"),
     resultPlayer2Score: document.querySelector("#player2Score"),
+    modal: document.querySelector("dialog"),
     updateResultsTable: () => {
       results.resultPlayer1Name.textContent = player1.name;
       results.resultPlayer2Name.textContent = player2.name;
@@ -168,16 +169,30 @@
           if (player1.checkWining()) {
             player1.addPoint();
             results.updateResultsTable();
+            document.querySelector("h2").innerText = player1.name + " won";
+            results.modal.showModal();
           }
 
           if (player2.checkWining()) {
             player2.addPoint();
             results.updateResultsTable();
+            document.querySelector("h2").innerText = player2.name + " won";
+            results.modal.showModal();
           }
 
           cursor.changeCursor();
         }
       });
+    });
+
+    results.modal.addEventListener("click", () => {
+      playBoard.selectedCells = [];
+      player1.selectedCells = [];
+      player2.selectedCells = [];
+      playBoard.gridCells.forEach((element) => {
+        element.style.background = `bisque`;
+      });
+      results.modal.close();
     });
 
     // add event listener for grid cells
