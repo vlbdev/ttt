@@ -128,7 +128,6 @@
       element.addEventListener("click", (e) => {
         e.target.style.background = `bisque url('${cursor.cursorImg}') no-repeat center center`;
         cursor.changeCursor();
-        console.log(cursor.cursorImg);
       });
     });
 
